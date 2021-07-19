@@ -1,0 +1,99 @@
+body {
+  font-family: sans-serif;
+}
+.todoBox {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+.inputBox {
+  width: 100%;
+}
+.input {
+  height: 36px;
+  width: 80%;
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  margin-right: 8px;
+  padding: 2px 4px;
+}
+
+.btnAddTodo {
+  background-color: green;
+  color: #fff;
+  height: 36px;
+  width: 80px;
+  box-shadow: none;
+}
+
+.tabs {
+  margin: 20px 0;
+  width: 100%;
+  display: flex;
+  flex-grow: 1;
+  flex-direction: row;
+  border: 1px solid #ddd;
+}
+.tab {
+  width: 100%;
+  box-shadow: 1px 3px 3px #ddd;
+}
+.tabHeader {
+  height: 50px;
+  width: 100%;
+  background-color: #ccc;
+  text-align: center;
+  line-height: 50px;
+  margin-top: 0px;
+}
+
+.todoList {
+  list-style: none;
+  margin: 0px;
+  padding: 0px 8px 8px;
+}
+.item {
+  list-style: none;
+  margin-bottom: 8px;
+  border: 1px solid #ddd;
+  padding: 4px;
+  position: relative;
+}
+.done {
+  background: #eee;
+}
+
+.checkbox {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.text {
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.done > .text {
+  text-decoration: line-through;
+}
+.editInput {
+  box-shadow: none;
+}
+
+.btnActions {
+  right: 4px;
+  position: absolute;
+  padding: 4px 0;
+  height: 100%;
+}
+.btnItem {
+  border: 0px;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+.hide {
+  display: none;
+}
