@@ -33,9 +33,20 @@ function ToDoList() {
 
     TodoListElm = document.createElement("ul");
     TodoListElm.classList = "todoList";
+    var li = this.getDefaultItem();
+    TodoListElm.appendChild(li);
     tab1.appendChild(TodoListElm);
     tabs.appendChild(tab1);
     return tabs;
+  };
+  this.getDefaultItem = function () {
+    var li = document.createElement("li");
+    li.classList = "itemDefault";
+    var text = document.createElement("span");
+    text.classList = "text";
+    text.innerHTML = "No List Item yet!";
+    li.appendChild(text);
+    return li;
   };
 
   this.init = function () {
@@ -50,6 +61,7 @@ function ToDoList() {
   };
 
   this.addTodo = function () {
+    var self = this;
     var title = InputElm.value;
     var li = document.createElement("li");
     li.classList = "item";
@@ -108,6 +120,12 @@ function ToDoList() {
       function () {
         var item = this.parentNode.parentNode;
         TodoListElm.removeChild(item);
+        var listItems = document.getElementsByClassName("item");
+        if (!listItems.length) {
+          console.log(self);
+          var liDefault = self.getDefaultItem();
+          TodoListElm.appendChild(liDefault);
+        }
       },
       false
     );
@@ -127,13 +145,19 @@ function ToDoList() {
           editInput.value = "";
           editInput.classList.add("hide");
           text.classList.remove("hide");
+           btn3.classList.add("hide");
+           btn1.classList.remove("hide");
         }
       },
       false
     );
+    var liDefault = document.getElementsByClassName("itemDefault");
+    if (liDefault.length) {
+      TodoListElm.removeChild(liDefault[0]);
+    }
     TodoListElm.appendChild(li);
     InputElm.value = "";
-  };
+  }.bind(this);
 }
 
 var todo = new ToDoList();
